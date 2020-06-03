@@ -771,6 +771,18 @@ select {
     border-color: #ddd;
     color: #ddd;
     background: #fff; }
+  input[type="text"]:read-only,
+  input[type="email"]:read-only,
+  input[type="password"]:read-only,
+  input[type="number"]:read-only,
+  input[type="tel"]:read-only,
+  textarea:read-only,
+  select:read-only {
+    box-shadow: none;
+    border-color: transparent; }
+
+[type="checkbox"] {
+  cursor: pointer; }
 
 .ba-todo-list {
   max-width: 800px;

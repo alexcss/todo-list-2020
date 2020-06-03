@@ -51,6 +51,13 @@ select {
 		color: #ddd;
 		background: #fff;	
 	}
+	&:read-only{
+		box-shadow: none;
+		border-color: transparent; 
+	}
+}
+[type="checkbox"]{
+	cursor: pointer;
 }
 
 

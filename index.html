@@ -28,35 +28,17 @@
 
 					<template data-tmpl>
 						<li>
-							<input type="checkbox">
-							<input type="text" value="{{task}}">
-							<button>Edit</button>
-							<button>Delete</button>
+							<input data-action="move" type="checkbox">
+							<input data-action="save" readonly type="text" value="{{task}}"> 
+							<button data-action="edit">Edit</button>
+							<button data-action="del">Delete</button>
 						</li>	
 					</template>
 
-					<li>
-						<input type="checkbox">
-						<input type="text" value="Learn JS">
-						<button>Edit</button>
-						<button>Delete</button>
-					</li>
-
-					<li>
-						<input type="checkbox">
-						<input type="text" value="Drink Burbon">
-						<button>Edit</button>
-						<button>Delete</button>
-					</li>
 				</ul>
 				<h3 class="ba-title">Completed</h3>
 				<ul class="ba-tasks-list" id="completed-list">
-					<li>
-						<input type="checkbox" checked>
-						<input type="text" disabled value="Drink Tequila">
-						<button>Edit</button>
-						<button>Delete</button>
-					</li>
+
 				</ul>
 			</div>
 		</div>
