@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ToDo List</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="" />
+	<link rel="icon" href="favicon.png" />
+	<link rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+	<main>
+		<!-- BEGIN ba-container  -->
+		<div class="ba-container">
+			<div class="ba-todo-list">
+				<h3 class="ba-title">Add Item</h3>
+				<form class="ba-add-form" action="#" method="post">
+					<input required id="newtask" type="text" name="newtask" placeholder="Enter your task for today">
+					<button type="submit">Add</button> 
+				</form>
+				<h3 class="ba-title">ToDo</h3>
+				<ul class="ba-tasks-list" id="todo-list">					
+
+					<template data-tmpl>
+						<li>
+							<input type="checkbox">
+							<input type="text" value="{{task}}">
+							<button>Edit</button>
+							<button>Delete</button>
+						</li>	
+					</template>
+
+					<li>
+						<input type="checkbox">
+						<input type="text" value="Learn JS">
+						<button>Edit</button>
+						<button>Delete</button>
+					</li>
+
+					<li>
+						<input type="checkbox">
+						<input type="text" value="Drink Burbon">
+						<button>Edit</button>
+						<button>Delete</button>
+					</li>
+				</ul>
+				<h3 class="ba-title">Completed</h3>
+				<ul class="ba-tasks-list" id="completed-list">
+					<li>
+						<input type="checkbox" checked>
+						<input type="text" disabled value="Drink Tequila">
+						<button>Edit</button>
+						<button>Delete</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- END ba-container -->
+	</main>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
