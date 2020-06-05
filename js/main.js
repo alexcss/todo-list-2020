@@ -81,6 +81,8 @@
 					eventEl.checked ? completedList.append(liTask) : todoList.append(liTask);
 
 					taskInput.readOnly = true;
+
+					updateDone(taskInput.value); //Update localStorage
 				break;
 		
 			case 'save': //If we clicked on edit btn
@@ -112,21 +114,46 @@
 
 		
 	}
+	// Work with localStorage
+
+	function updateDone(task){
+		let storageTasks = localStorage.getItem('ba-todo');
+		storageTasks = JSON.parse(storageTasks) || [];
+
+		let updatedStorage = storageTasks.map( item => {
+			if(item.name == task){
+				item.done = !item.done;
+			}
+			return item;
+		});
+		
+		localStorage.setItem('ba-todo', JSON.stringify(updatedStorage));
+
+	}
 
 	//Show task from localStorage
 
 	function showTasksFromStorage() {
-		let storageTasks = localStorage.getItem('ba-todo')
+		let storageTasks = localStorage.getItem('ba-todo');
 		storageTasks = JSON.parse(storageTasks) || [];
 	
 		console.log(storageTasks);
 
-		let taskLiHtml = '';
-		storageTasks.forEach(task => {
-			taskLiHtml += taskTmpl.replace(/{{task}}/gi, task.name);			
-		});
-		todoList.innerHTML += taskLiHtml;
-			
+		const todoTasks = storageTasks.filter(item => item.done == false );
+		const completedTasks = storageTasks.filter(item => item.done == true );
+
+		todoTasks.forEach( task => {
+			todoList.innerHTML += taskTmpl
+											.replace(/{{task}}/gi, task.name);			
+		});		
+
+		completedTasks.forEach( task => {
+			completedList.innerHTML += taskTmpl
+												.replace(/{{task}}/gi, task.name)
+												.replace(/data-done/gi, 'checked')
+												;			
+		});		
+	
 	}
 	
 	showTasksFromStorage();
