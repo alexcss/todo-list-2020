@@ -64,7 +64,6 @@
 	todoWrap.addEventListener('keydown', doTask);
 
 	function doTask(event) {
-		console.log(`Clicked inside `, this, ` on element`, event.target);
 		
 		const eventEl = event.target;
 		const action = eventEl.dataset.action; //Move || Edit || Del		
@@ -136,8 +135,6 @@
 	function showTasksFromStorage() {
 		let storageTasks = localStorage.getItem('ba-todo');
 		storageTasks = JSON.parse(storageTasks) || [];
-	
-		console.log(storageTasks);
 
 		const todoTasks = storageTasks.filter(item => item.done == false );
 		const completedTasks = storageTasks.filter(item => item.done == true );
